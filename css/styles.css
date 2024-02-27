@@ -1,0 +1,334 @@
+:root {
+  --black: #050006;
+  --fre-color: #357b70;
+  --dark-red: #a23e0d;
+  --fre-color2: #0f6575;
+  --bright-pink: #f229bc;
+  --blue: blue;
+  --dark-red2: rgb(86, 12, 12);
+  --light-purple: #f8e3fd;
+  --white: rgb(255, 255, 255);
+  --l-black: rgba(0, 0, 0, 0.3);
+  --dark-yellow: #e0b354;
+  --black3: #2b2b2b;
+  --light-purple2: rgb(220, 202, 222);
+  --px: 20px;
+
+  --light-red: #a90a0a;
+  --purple-blue: hsl(263, 80%, 41%);
+  --orange: #f76414;
+  --light-yellow: #edc655;
+
+  --bright-yellow: hsl(63, 86%, 50%);
+  --light-orange: #f4f1ef;
+  --time-dur: 30s;
+  --px18: 18px;
+  --time2: 0.2s;
+  --px2: 2px;
+}
+
+body {
+  margin: 1px; /* Adds a 10px outer spacing to all sides*/
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: var(--px18);
+  line-height: 1.6;
+  color: var(--black);
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--px18);
+  font-weight: 700;
+}
+
+a {
+  color: var(--fre-color);
+}
+
+a:hover {
+  color: var(--dark-red);
+  text-decoration: none;
+}
+
+a:visited {
+  /* visited link */
+  color: var(--fre-color2);
+  transition: all 0.2s ease-in-out;
+}
+
+a:active {
+  /* selected link */
+  color: var(--bright-pink);
+  transition: all 0.2s linear;
+}
+
+a:focus {
+  /* No underlining when hovering over a link */
+  outline: var(--px2) solid var(--blue);
+  transition: all 0.2s linear;
+}
+
+span {
+  border: var(--px2) solid var(--dark-red2);
+  background-color: var(--light-purple);
+}
+
+.button,
+button {
+  /* overwrites browser defaults */
+  /* resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* style button */
+  background-color: var(--fre-color);
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  /* width of the border, type, color */
+  border-bottom: var(--px2) solid var(--l-black);
+  transition-duration: 0.9s;
+  transition-property: opacity;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button__secondary {
+  text-align: right;
+  background-color: var(--dark-yellow);
+  color: var(--black3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page-header {
+  display: flex;
+  width: 100%;
+}
+
+.profile_portrait {
+  text-align: center;
+  width: 250px;
+  margin-right: 1px;
+  border-radius: 50%;
+}
+
+.profile {
+  text-align: center;
+  min-width: 100px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.main-navigation page-header__item {
+  list-style-type: none;
+}
+
+.navigation-list li {
+  display: inline-block;
+  padding-top: 0px;
+  margin-right: 10px;
+}
+
+.page-header__item {
+  flex: 0 1 500px;
+  display: flexbox;
+}
+
+.page-header__item:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.grid_item {
+  background-color: var(--light-purple2);
+  transition: transform 1s;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: var(--px);
+}
+
+.grid_item:last-child {
+  grid-column-start: 3;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.grid_item:hover {
+  transform: scale(1.08);
+}
+
+.page-footer {
+  clear: both;
+  width: auto;
+  flex-direction: row;
+  text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-gap: var(--px);
+  }
+  .grid_item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: var(--px);
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .grid_item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: var(--px);
+  }
+}
+
+.buildings {
+  animation-duration: 4s;
+  animation-name: building-change;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes building-change {
+  0% {
+    fill: var(--light-red);
+  }
+
+  100% {
+    fill: var(--purple-blue);
+  }
+}
+
+.star1 {
+  animation-duration: 4s;
+  animation-name: color-change;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes color-change {
+  0% {
+    fill: var(--orange);
+  }
+  50% {
+    fill: var(--light-yellow);
+  }
+
+  100% {
+    fill: var(--bright-yellow);
+  }
+}
+
+.star1 {
+  animation-duration: 4s;
+  animation-name: color-change, scale;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+}
+
+@keyframes color-change {
+  0% {
+    fill: var(--light-orange);
+  }
+  50% {
+    fill: var(--light-yellow);
+  }
+
+  100% {
+    fill: var(--bright-yellow);
+  }
+}
+
+@keyframes scale {
+  10% {
+    transform: scaleX(1.5) scale(1.5);
+  }
+}
+
+.clouds {
+  animation-duration: 40s;
+  animation-name: cloud-move;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, var(--px2));
+  }
+  to {
+    transform: translate(200px, var(--px2));
+  }
+}
+
+.clouds-back {
+  animation-duration: var(--time-dur);
+  animation-name: cloud-reverse;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes cloud-reverse {
+  from {
+    transform: translate(0, var(--px2));
+  }
+  to {
+    transform: translate(-200px, var(--px2));
+  }
+}
+
+.hottballon {
+  animation-duration: var(--time-dur);
+  animation-name: balloon-raise;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes balloon-raise {
+  from {
+    transform: translate(10px, 0px);
+  }
+  to {
+    transform: translate(10px, -200px);
+  }
+}
